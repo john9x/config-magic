@@ -103,9 +103,9 @@ final class DefaultCoercibles
      */
     static final Coercible<?> VALUE_OF_COERCIBLE = new Coercible<Object>() {
 
-        private Map<Class<?>, Coercer<Object>> coercerMap = new HashMap<Class<?>, Coercer<Object>>();
+        private final Map<Class<?>, Coercer<Object>> coercerMap = new HashMap<Class<?>, Coercer<Object>>();
 
-        public Coercer<Object> accept(final Class<?> type)
+        public synchronized Coercer<Object> accept(final Class<?> type)
         {
             if (coercerMap.containsKey(type)) {
                 // If a key exists, the value always gets returned. If a null value is in the map,
@@ -156,9 +156,9 @@ final class DefaultCoercibles
      */
     static final Coercible<?> STRING_CTOR_COERCIBLE = new Coercible<Object>() {
 
-        private Map<Class<?>, Coercer<Object>> coercerMap = new HashMap<Class<?>, Coercer<Object>>();
+        private final Map<Class<?>, Coercer<Object>> coercerMap = new HashMap<Class<?>, Coercer<Object>>();
 
-        public Coercer<Object> accept(final Class<?> type)
+        public synchronized Coercer<Object> accept(final Class<?> type)
         {
             if (coercerMap.containsKey(type)) {
                 // If a key exists, the value always gets returned. If a null value is in the map,
@@ -199,9 +199,9 @@ final class DefaultCoercibles
      */
     static final Coercible<?> OBJECT_CTOR_COERCIBLE = new Coercible<Object>() {
 
-        private Map<Class<?>, Coercer<Object>> coercerMap = new HashMap<Class<?>, Coercer<Object>>();
+        private final Map<Class<?>, Coercer<Object>> coercerMap = new HashMap<Class<?>, Coercer<Object>>();
 
-        public Coercer<Object> accept(final Class<?> type)
+        public synchronized Coercer<Object> accept(final Class<?> type)
         {
             if (coercerMap.containsKey(type)) {
                 // If a key exists, the value always gets returned. If a null value is in the map,
